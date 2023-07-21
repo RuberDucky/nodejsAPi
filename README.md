@@ -2,7 +2,7 @@
 
 ## Description
 
-[]
+Simple Signup and SignIn and also added the OTP for verifying the email
 
 ## Installation
 
@@ -11,7 +11,7 @@ To run this project locally, follow these steps:
 1. Clone the repository to your local machine using the following command:
 
 ```
-git clone [repository_url](https://github.com/RuberDucky/nodejsAPi)
+git clone https://github.com/RuberDucky/nodejsAPi
 ```
 
 2. Navigate to the project directory:
@@ -28,7 +28,7 @@ npm install express pg bcrypt body-parser cors nodemailer fs
 
 ## Usage
 
-[Explain how to use your project here. Provide examples and usage instructions.]
+you can use this anywhere in your web panel and in building mobile applications. and also in your desktop apps.
 
 ## API Endpoints
 
