@@ -25,7 +25,10 @@ cd nodejsApi
 ```
 npm install express pg bcrypt body-parser cors nodemailer fs
 ```
-
+4. Run the Project:
+```
+node index.js
+```
 ## Usage
 
 you can use this anywhere in your web panel and in building mobile applications. and also in your desktop apps.
