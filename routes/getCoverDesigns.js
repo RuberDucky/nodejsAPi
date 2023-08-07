@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
         return {
           cover_images_id: coverDesign.cover_images_id,
           name: coverDesign.name,
-          image: coverDesign.image,
+          image: coverDesign.imageurl,
         };
       });
   

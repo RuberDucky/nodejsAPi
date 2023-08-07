@@ -26,3 +26,11 @@ CREATE TABLE users (
   number_of_pages INT,
   currency VARCHAR(10)
 );
+
+
+
+CREATE TABLE cover_design (
+  cover_images_id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  image VARCHAR(255) NOT NULL
+);
