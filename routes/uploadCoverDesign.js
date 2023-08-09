@@ -13,7 +13,7 @@ const pool = mysql.createPool({
 });
 
 // Serve static files from the 'PassportImages' directory
-router.use('/PassportImages', express.static('PassportImages'));
+router.use('/uploads/PassportImages', express.static('uploads/PassportImages'));
 
 // Function to generate a 9-digit random number
 function generateRandomNumber() {
@@ -37,13 +37,13 @@ router.post('/', async (req, res) => {
     const newFileName = `${randomNumber}${imageExtension}`;
 
     // Save the decoded image in the 'PassportImages' folder
-    const imageDirectory = path.join(__dirname, '..', 'PassportImages');
+    const imageDirectory = path.join(__dirname, '..', 'uploads/PassportImages');
     const imagePath = path.join(imageDirectory, newFileName);
     fs.writeFileSync(imagePath, decodedImage);
 
     // Store the image path in the database
     const query = 'INSERT INTO cover_design (name, imageurl) VALUES (?, ?)';
-    pool.query(query, [coverImageName, `/PassportImages/${newFileName}`], (err, result) => {
+    pool.query(query, [coverImageName, `uploads/PassportImages/${newFileName}`], (err, result) => {
       if (err) {
         console.error('Error storing image path in the database:', err);
         return res.status(500).json({ status: 'error', error: 'Internal Server Error' });

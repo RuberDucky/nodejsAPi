@@ -12,7 +12,7 @@ const pool = mysql.createPool({
   port: process.env.DB_PORT,
 });
 
-router.use('/UsersProfile', express.static('UsersProfile'));
+router.use('/uploads/UsersProfile', express.static(path.join(__dirname, '..', 'uploads/UsersProfile')));
 
 
 // Function to generate a 9-digit random number
@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
     const newFileName = `${randomNumber}${imageExtension}`;
 
     // Save the decoded image in the 'UserProfile' directory
-    const imageDirectory = path.join(__dirname, '..', 'UsersProfile');
+    const imageDirectory = path.join(__dirname, '..', 'uploads/UsersProfile');
     const imagePath = path.join(imageDirectory, newFileName);
     fs.writeFileSync(imagePath, decodedImage);
 
@@ -48,7 +48,7 @@ router.post('/', async (req, res) => {
       WHERE usercustomerId = ?
     `;
 
-    pool.query(query, [`/UsersProfile/${newFileName}`, usercustomerId], (err, result) => {
+    pool.query(query, [`uploads/UsersProfile/${newFileName}`, usercustomerId], (err, result) => {
       if (err) {
         console.error('Error updating profile picture:', err);
         return res.status(500).json({ status: 'error', error: 'Internal Server Error' });

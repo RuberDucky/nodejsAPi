@@ -28,7 +28,6 @@ const signupRoute = require('./routes/signup');
 const getCoverDesignsRoute = require('./routes/getCoverDesigns');
 const verifyOtpRoute = require('./routes/verifyOtp');
 const loginRoute = require('./routes/login');
-const imageRoute =  require('./routes/images')
 const uploadCoverDesign = require('./routes/uploadCoverDesign')
 const coverIdupload = require('./routes/coverIdupload')
 const uploadProfile = require('./routes/profileUpload')
@@ -38,7 +37,6 @@ app.use('/signup', signupRoute);
 app.use('/getCoverDesigns', getCoverDesignsRoute);
 app.use('/verifyOtp', verifyOtpRoute);
 app.use('/login', loginRoute);
-app.use('/images', imageRoute);
 app.use('/uploadCoverDesign', uploadCoverDesign);
 app.use('/coveridupload', coverIdupload);
 app.use('/uploadProfile', uploadProfile);

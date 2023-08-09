@@ -1,3 +1,4 @@
 node_modules/
-UserProfile/
-PassportImages/
+uploads/
+oldcode.txt
+packages-lock.json
