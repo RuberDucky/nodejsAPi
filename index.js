@@ -31,6 +31,7 @@ const loginRoute = require('./routes/login');
 const uploadCoverDesign = require('./routes/uploadCoverDesign')
 const coverIdupload = require('./routes/coverIdupload')
 const uploadProfile = require('./routes/profileUpload')
+const detailedSignup =  require('./routes/detailedSignup')
 
 // Use the route files
 app.use('/signup', signupRoute);
@@ -40,6 +41,7 @@ app.use('/login', loginRoute);
 app.use('/uploadCoverDesign', uploadCoverDesign);
 app.use('/coveridupload', coverIdupload);
 app.use('/uploadProfile', uploadProfile);
+app.use('/detailedSignup', detailedSignup);
 
 // Error handling middleware (optional but recommended)
 app.use((err, req, res, next) => {
