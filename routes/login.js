@@ -12,10 +12,7 @@ const pool = mysql.createPool({
     port: process.env.DB_PORT,
   });
   
-  // Generate a 4-digit OTP
-  function generateOTP() {
-    return Math.floor(1000 + Math.random() * 9000);
-  }
+
   
   router.post('/', async (req, res) => {
     const { email, password } = req.body;
@@ -23,11 +20,13 @@ const pool = mysql.createPool({
     try {
       // Fetch user data from the database based on the provided email
       const [result] = await pool.promise().query('SELECT * FROM users WHERE email = ?', [email]);
-  
+
       if (result.length === 0) {
-        res.status(401).json({ code: 401, status: 'error', error: 'Invalid email or password' });
-      } else {
+          res.status(401).json({ code: 401, status: 'error', error: 'Invalid email or password' });
+      }
+       else {
         const user = result[0];
+        const passwordMatch = await bcrypt.compare(password, user.password);
         const match = await bcrypt.compare(password, user.password);
   
         // Construct the response data object
@@ -59,7 +58,7 @@ const pool = mysql.createPool({
           currency: user.currency || null,
         };
   
-        if (match) {
+        if (passwordMatch) {
           res.status(200).json({
             code: 200,
             status: 'success',
